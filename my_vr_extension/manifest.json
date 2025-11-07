@@ -1,0 +1,32 @@
+{
+    "manifest_version": 2,
+    "name": "VR Video Extension",
+    "description": "Enable VR mode for videos",
+    "version": "1.0",
+    "icons": {
+        "16": "images/icon.png",
+        "48": "images/icon.png",
+        "128": "images/icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content_scripts/content.js"],
+            "css": ["css/style.css"]
+        }
+    ],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false,
+        "module": true
+    },
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_icon": "images/icon.png"
+    },
+    "permissions": [
+        "activeTab",
+        "storage",
+        "https://115vod.com/site/api/video/m3u8/*"
+    ]
+}
